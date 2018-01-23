@@ -13,7 +13,7 @@ client -> client: 无响应
 client <-- server: 拒绝
 client <-x client: 退出
 deactivate client
-server->server: 拒绝非法\n合法继续
+server->server: 拒绝非法\n注册合法
 client <- server: 初始配置
 activate client
 client -> client: 初始化完成

@@ -1,0 +1,19 @@
+@startuml
+participant "客户端" as client
+participant "服务端" as server
+
+client -> server: 心跳信息
+activate client
+par 断开
+client -[#black]> client: 自动退出
+end
+deactivate client
+
+server -> client: 心跳信息
+activate server
+par 断开
+server -> server: 卸载UI
+end
+deactivate server
+
+@enduml

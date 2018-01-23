@@ -1,7 +1,6 @@
 @startuml
 /'
 >>消息 >过程 o起终点 x结束 --返回 \/异步
-'/
 participant "Sender" as snd
 participant "Receiver" as rcv
 snd ->> rcv: draw message
@@ -13,4 +12,22 @@ snd o-> rcv: start call
 snd o<-- rcv: end return
 snd <<->> rcv: two-way communication
 snd <--x rcv: deactivation
+'/
+participant "客户端" as client
+participant "服务端" as server
+actor "测试人员" as tester
+
+[-> client: 接收
+activate client
+client -> client: 拆包处理
+client -> server: 上传关键信息
+activate server
+server ->tester: UI更新
+server <-tester: UI操作
+client <- server: 下发应用数据
+deactivate server
+client <- client: 组包处理
+[<- client: 发送
+deactivate client
+
 @enduml
