@@ -1,0 +1,17 @@
+@startuml
+
+class 实体 {
+valMin
+valMax
+count
+}
+实体 -() a
+
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+
+@enduml

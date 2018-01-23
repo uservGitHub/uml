@@ -1,7 +1,26 @@
 @startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+participant "客户端" as client
+participant "服务端" as server
+
+rnote over server: 配置加载完毕
+server->server: 端口监听
+activate server
+[-> client: 启动并引导
+activate client
+client -> server: 请求
+client -> client: 无响应
+client <-- server: 拒绝
+client <-x client: 退出
+deactivate client
+server->server: 拒绝非法\n合法继续
+client <- server: 初始配置
+activate client
+client -> client: 初始化完成
+[<-> client: 与目标交互
+client <-> server: 数据交互
+deactivate client
+deactivate server
+
+
 @enduml

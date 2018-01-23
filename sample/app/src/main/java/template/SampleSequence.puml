@@ -1,0 +1,15 @@
+@startuml
+actor "驱动" as obj1
+participant "实体" as obj2
+participant "后台" as obj3
+== Setup ==
+== Running ==
+obj1 ->> obj2: 操作
+hnote over obj2 : 能否响应
+ref over obj2
+能否响应
+end ref
+opt 能否响应
+end
+
+@enduml
