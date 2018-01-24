@@ -18,5 +18,4 @@ par 断开
 server -> server: 卸载UI
 end
 deactivate server
-
 @enduml

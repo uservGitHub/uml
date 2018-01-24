@@ -1,0 +1,19 @@
+@startuml
+component "服务端" as server
+component "客户端" as client
+interface "内连接" as link
+interface "设备1" as device1
+interface "设备i" as devicei
+interface "设备n" as devicen
+
+link -left-> server
+link -right-> client
+client -up-> device1
+client -down-> devicen
+client -right-> devicei
+
+note left of client
+n个设备类型相同
+n个设备外部协议相同
+end note
+@enduml
