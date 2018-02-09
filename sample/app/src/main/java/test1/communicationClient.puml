@@ -15,7 +15,7 @@ deactivate client
 server -> client: 心跳信息
 activate server
 par 断开
-server -> server: 卸载UI
+server -> server: 注销并\n卸载UI
 end
 deactivate server
 @enduml

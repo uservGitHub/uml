@@ -1,0 +1,17 @@
+@startuml
+component "RelativeLayout" as host
+component "MoveDriver" as driver
+component "FlingAnimation" as animation
+interface "onFling" as fling
+interface "startFlingAnimation" as startFling
+interface "computeScroll" as scroll
+interface "computeFling" as compute
+
+driver -down-> onFling
+onFling -right-> startFling
+startFling -down-> animation
+animation -right-> scroll
+scroll -down-> host
+compute <-right- host
+compute -up-> animation
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+
+'Domain Specific Language, DSL
+component "领域特定语言" as dsl
+component "Domain Specific Language, DSL" as server
+
+package "自动化测试系统" {
+[自动执行测试任务]
+[手动执行测试任务]
+[测试任务的中断/继续/打桩]
+}
+package "场景系统" {
+[基础/工程数据]
+[模型数据]
+
+}
+
+note left of 自动执行测试任务
+带时间戳的顺序行
+行目标操作
+目标标志+指令集合+时间戳
+
+end note
+
+@enduml

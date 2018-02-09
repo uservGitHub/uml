@@ -1,0 +1,13 @@
+@startuml
+/'component "RelativeLayout" as host
+component "MoveDriver" as driver
+component "FlingAnimation" as animation
+'/
+
+package "滑动效果" {
+[MoveDriver]
+[FlingAnimation]
+[RelativeLayout]
+}
+
+@enduml

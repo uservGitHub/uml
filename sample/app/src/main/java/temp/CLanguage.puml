@@ -1,0 +1,17 @@
+@startuml
+
+component "头文件" as fhead
+component "源码文件" as fsource
+interface "函数原型" as funtotype
+interface "标识符常量" as varconst
+
+funtotype -up-> fhead
+varconst -down-> fhead
+fhead -right-> fsource
+
+note right of varconst
+静态内部链接变量
+静态外部链接变量
+end note
+
+@enduml

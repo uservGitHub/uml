@@ -1,0 +1,21 @@
+@startuml
+component "场景服务器" as web
+component "测试执行服务端" as server
+
+interface "设备仿真单元1" as device1
+interface "设备仿真单元i" as devicei
+interface "设备仿真单元n" as devicen
+
+web -right-> server
+'server -left-> web
+server -up-> device1
+server -down-> devicen
+server -right-> devicei
+
+/'
+note left of client
+n个设备类型相同
+n个设备外部协议相同
+end note
+'/
+@enduml

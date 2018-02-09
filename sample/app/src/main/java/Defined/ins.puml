@@ -1,0 +1,48 @@
+@startuml
+/'我个人的理解：集团化企业包含一系列同质化的产品或工作
+因而通用性的软件产品或设计的价值就会被放大，
+测试人员的要求
+行业专家的要求
+方法、技术、灵感
+推广，做精细
+上图...
+多元化技术的利用
+开源技术的利用
+（sqlite嵌入式库的利用、小的词法分析、android系统的利用）
+细思极恐的软件设计过程
+实际需求的分解
+'/
+participant "脚本行" as line
+participant "执行指令" as ex
+participant "数据指令" as data
+participant "控制指令" as ui
+participant "辅助指令" as fz
+activate line
+line->line: 目标标识\n(设备或其他)
+line->line: 时间戳\n(周期,时刻)
+line->ex: 解析指令
+activate ex
+ex->ex: 指令类型
+ex->data: 解析数据
+activate data
+note right of data:结合场景和\nDSL语言\n(领域专用语言)
+data->data: 执行写入\n(信息,寻址)
+data->data: 执行判断\n(寻址,预期值,实际值)
+data-->ex: 解析完毕
+deactivate data
+ex->ui: 操作控制
+activate ui
+ui->ui: 点选操作(界面)
+ui->ui: 后台控制(断网等)
+ui-->ex:完成操作
+deactivate ui
+
+deactivate ex
+ex -->o line:解析完毕
+deactivate line
+
+fz -> fz: 打桩
+fz -> fz: 注释
+fz -> fz: 块信息\n(缩进,展开,收回)
+
+@enduml

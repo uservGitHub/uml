@@ -1,0 +1,36 @@
+@startuml
+|脚本行|
+start
+:行解析;
+:目标标志;
+:时间戳;
+:执行命令;
+|指令|
+:命令类型;
+:数据指令;
+:控制指令;
+
+/'
+component "脚本行" as exline
+component "设备标志" as device
+component "指令" as instruction
+component "时间戳" as timestamp
+component "数据控制" as datacontrol
+component "UI控制" as devicecontrol
+package "脚本行" {
+"设备标志" <|-- "指 令"
+ "指 令" <|-- "时间戳"
+}
+:脚本行;
+fork
+:目标标志(设备);
+fork again
+:指令;
+fork again
+:时间戳;
+end fork
+stop
+'/
+
+
+@enduml
